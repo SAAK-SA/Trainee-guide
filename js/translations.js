@@ -40,7 +40,7 @@ const translations = {
     location: {
       eyebrow: "الموقع",
       title: "موقع مركز التدريب",
-      address: ".مبنى شركة ساك الدولية، الرياض، المملكة العربية السعودية",
+      address: ".مبنى شركة ساك تيم، الرياض، المملكة العربية السعودية",
       btnDirections: "احصل على الاتجاهات",
       imgLabel: "صورة المبنى"
     },
@@ -79,7 +79,7 @@ const translations = {
       rooms: "قاعات التدريب",
       prayer: "مصلى",
       restrooms: "دورات المياه",
-      coffee: "منطقة الراحة",
+      coffee: "منطقة الاستراحة",
       exit: "مخرج الطوارئ"
     },
     layout: {
@@ -203,7 +203,7 @@ const translations = {
     location: {
       eyebrow: "Location",
       title: "Training Center Location",
-      address: "SAAK International Building, Riyadh, Saudi Arabia",
+      address: "SAAK Team Building, Riyadh, Saudi Arabia",
       btnDirections: "Get Directions",
       imgLabel: "Building photo"
     },
@@ -230,7 +230,7 @@ const translations = {
       step1: { title: "Main Entrance", text: "Head to the main entrance of the SAAK International building." },
       step2: { title: "Ring the Door Bell", text: "Ring the bell upon arrival and the door will be opened for you." },
       step3: { title: "Reception", text: "Proceed to the reception desk where you will be welcomed and guided." },
-      step4: { title: "Attendance Registration", text: "Register your attendance with the reception team before the course begins." },
+      step4: { title: "Attendance Registration & Badge Collection", text: "Register your attendance and collect your identification badge from the reception team before the training session begins." },
       step5: { title: "Waiting Lounge", text: "You may wait in the dedicated lounge until your course session begins." },
       step6: { title: "Training Room", text: "Head to your assigned training room together with your trainer." }
     },
@@ -242,7 +242,7 @@ const translations = {
       rooms: "Training Rooms",
       prayer: "Prayer Room",
       restrooms: "Restrooms",
-      coffee: "Coffee Area",
+      coffee: "Break Area",
       exit: "Emergency Exit"
     },
     layout: {
