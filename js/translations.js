@@ -30,7 +30,7 @@ const translations = {
     about: {
       eyebrow: "من نحن",
       title: "مركز رائد لتدريب واعتماد IPC في المملكة",
-      lead: "تأسس مركز ساك تيم للتدريب عام 2025 كامتداد لشركة تيم بارتنر، أول مركز تدريب عربي معتمد من IPC، تأسس في تونس عام 2011.",
+      lead: "تأسس مركز ساك تيم للتدريب عام 2025 كامتداد لشركة تيم بارتنر، أول مركز تدريب عربي معتمد من IPC.",
       card1: { title: "تأسس عام 2025", text: "انطلاقة حديثة مبنية على خبرة عريقة في التدريب الفني المعتمد دوليًا." },
       card2: { title: "أول مركز معتمد من IPC بالسعودية", text: "الأول من نوعه في المملكة العربية السعودية بتفويض رسمي من منظمة IPC العالمية." },
       card3: { title: "مرخّص من TVTC", text: "برامجنا مرخصة رسميًا من المؤسسة العامة للتدريب التقني والمهني لضمان أعلى معايير الجودة." },
@@ -40,7 +40,7 @@ const translations = {
     location: {
       eyebrow: "الموقع",
       title: "موقع مركز التدريب",
-      address: "مبنى ساك إنترناشونال، الرياض، المملكة العربية السعودية",
+      address: ".مبنى شركة ساك الدولية، الرياض، المملكة العربية السعودية",
       btnDirections: "احصل على الاتجاهات",
       imgLabel: "صورة المبنى"
     },
@@ -64,10 +64,10 @@ const translations = {
       eyebrow: "رحلة الوصول",
       title: "خطوات وصولك إلى قاعة التدريب",
       imgLabel: "صورة حقيقية من الموقع",
-      step1: { title: "المدخل الرئيسي", text: "توجّه إلى المدخل الرئيسي لمبنى ساك إنترناشونال." },
+      step1: { title: "المدخل الرئيسي", text: "توجّه إلى المدخل الرئيسي لمبنى ساك الدولية." },
       step2: { title: "اضغط جرس الباب", text: "اضغط جرس الباب عند الوصول وسيتم فتح الباب لك." },
       step3: { title: "الاستقبال", text: "توجّه إلى مكتب الاستقبال حيث سيتم الترحيب بك وتوجيهك." },
-      step4: { title: "تسجيل الحضور", text: "قم بتسجيل حضورك لدى فريق الاستقبال قبل بدء الدورة." },
+      step4: { title: "تسجيل الحضور واستلام البطاقة", text: "قم بتسجيل حضورك واستلام البطاقة لدى فريق الاستقبال قبل بدء الدورة." },
       step5: { title: "صالة الانتظار", text: "يمكنك الانتظار في الصالة المخصصة حتى موعد بدء الدورة." },
       step6: { title: "قاعة التدريب", text: "توجّه إلى قاعة التدريب المخصصة لدورتك برفقة المدرب." }
     },
@@ -79,14 +79,13 @@ const translations = {
       rooms: "قاعات التدريب",
       prayer: "مصلى",
       restrooms: "دورات المياه",
-      coffee: "ركن القهوة",
+      coffee: "منطقة الراحة",
       exit: "مخرج الطوارئ"
     },
     layout: {
       eyebrow: "المخطط",
       title: "مخطط المبنى",
-      youAreHere: "أنت هنا",
-      imgLabel: "المخطط التفصيلي للمبنى"
+           imgLabel: "المخطط التفصيلي للمبنى"
     },
     policies: {
       eyebrow: "السياسات والأنظمة",
@@ -194,7 +193,7 @@ const translations = {
     about: {
       eyebrow: "Who We Are",
       title: "A Leading IPC Training & Certification Center in Saudi Arabia",
-      lead: "SAAK Team Training Center was established in 2025 as an extension of Team Partner, the first Arab IPC Authorized Training Center, established in Tunisia in 2011.",
+      lead: "SAAK Team Training Center was established in 2025 as an extension of Team Partner, the first Arab IPC Authorized Training Center.",
       card1: { title: "Established in 2025", text: "A fresh launch built on a proven legacy of internationally accredited technical training." },
       card2: { title: "First IPC Authorized Center in KSA", text: "The first of its kind in Saudi Arabia, officially authorized by IPC." },
       card3: { title: "Licensed by TVTC", text: "Our programs are officially licensed by the Technical and Vocational Training Corporation." },
