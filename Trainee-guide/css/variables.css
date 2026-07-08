@@ -1,0 +1,94 @@
+/* ==========================================================================
+   SAAK Team Training Center — Design Tokens
+   Colors extracted exclusively from the official brand mark (navy / gold).
+   ========================================================================== */
+:root {
+  /* Brand palette */
+  --c-navy-900: #0c2440;
+  --c-navy-800: #123a63;
+  --c-navy-700: #1a4a7a;
+  --c-navy-600: #2a5f96;
+  --c-gold-500: #f2a922;
+  --c-gold-400: #f7c25c;
+  --c-gold-600: #c9860f;
+  --c-gold-700: #a66c0c;
+
+  /* Neutrals */
+  --c-cream-50: #faf8f4;
+  --c-cream-100: #f3efe6;
+  --c-white: #ffffff;
+  --c-gray-100: #f2f4f7;
+  --c-gray-200: #e4e8ee;
+  --c-gray-300: #cdd4de;
+  --c-gray-500: #6b7686;
+  --c-gray-700: #3c4657;
+  --c-gray-900: #16202e;
+
+  /* Semantic */
+  --color-bg: var(--c-white);
+  --color-bg-alt: var(--c-cream-50);
+  --color-surface: var(--c-white);
+  --color-border: var(--c-gray-200);
+  --color-text: var(--c-gray-900);
+  --color-text-muted: var(--c-gray-500);
+  --color-primary: var(--c-navy-800);
+  --color-primary-dark: var(--c-navy-900);
+  --color-accent: var(--c-gold-500);
+  --color-accent-2: var(--c-gold-600);
+  --color-success: #1f9d63;
+  --color-danger: #d94848;
+
+  /* Typography */
+  --font-en: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-ar: "IBM Plex Sans Arabic", "Tajawal", "Segoe UI", Tahoma, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-round: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(12, 36, 64, 0.06);
+  --shadow-md: 0 8px 24px rgba(12, 36, 64, 0.10);
+  --shadow-lg: 0 20px 48px rgba(12, 36, 64, 0.14);
+  --shadow-glow: 0 0 0 6px rgba(242, 169, 34, 0.14);
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+
+  /* Layout */
+  --container-w: 1200px;
+  --header-h: 76px;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0c1420;
+  --color-bg-alt: #101c2c;
+  --color-surface: #14243a;
+  --color-border: #223349;
+  --color-text: #eef2f7;
+  --color-text-muted: #9fb0c4;
+  --glass-bg: rgba(20, 36, 58, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
