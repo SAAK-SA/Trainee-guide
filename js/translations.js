@@ -227,7 +227,7 @@ const translations = {
       eyebrow: "Arrival Journey",
       title: "Your Path to the Training Room",
       imgLabel: "Real photo from the location",
-      step1: { title: "Main Entrance", text: "Head to the main entrance of the SAAK International building." },
+      step1: { title: "Main Entrance", text: "Head to the main entrance of the SAAK Team building." },
       step2: { title: "Ring the Door Bell", text: "Ring the bell upon arrival and the door will be opened for you." },
       step3: { title: "Reception", text: "Proceed to the reception desk where you will be welcomed and guided." },
       step4: { title: "Attendance Registration & Badge Collection", text: "Register your attendance and collect your identification badge from the reception team before the training session begins." },
