@@ -231,14 +231,14 @@ const translations = {
       step2: { title: "Ring the Door Bell", text: "Ring the bell upon arrival and the door will be opened for you." },
       step3: { title: "Reception", text: "Proceed to the reception desk where you will be welcomed and guided." },
       step4: { title: "Attendance Registration & Badge Collection", text: "Register your attendance and collect your identification badge from the reception team before the training session begins." },
-      step5: { title: "Waiting Lounge", text: "You may wait in the dedicated lounge until your course session begins." },
+      step5: { title: "Waiting Area", text: "You may wait in the dedicated lounge until your course session begins." },
       step6: { title: "Training Room", text: "Head to your assigned training room together with your trainer." }
     },
     facilities: {
       eyebrow: "Facilities",
       title: "Training Center Facilities",
       reception: "Reception",
-      lounge: "Waiting Lounge",
+      lounge: "Waiting Area",
       rooms: "Training Rooms",
       prayer: "Prayer Room",
       restrooms: "Restrooms",
