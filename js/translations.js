@@ -248,8 +248,7 @@ const translations = {
     layout: {
       eyebrow: "Building Layout",
       title: "Building Floor Plan",
-      youAreHere: "You Are Here",
-      imgLabel: "Detailed building floor plan"
+       imgLabel: "Detailed building floor plan"
     },
     policies: {
       eyebrow: "Policies & Regulations",
