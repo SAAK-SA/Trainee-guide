@@ -211,12 +211,6 @@
 .floorplan-toolbar button:hover { background: var(--color-bg-alt); }
 .floorplan-viewport { overflow: auto; border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
 .floorplan-viewport .smart-img { aspect-ratio: 4/3; border-radius: 0; transition: transform var(--duration-base) var(--ease-out); transform-origin: center; }
-.you-are-here {
-  position: absolute; top: 46%; inset-inline-start: 48%; z-index: 2;
-  background: var(--color-accent-2); color: #fff; font-size: 0.75rem; font-weight: 700;
-  padding: 6px 12px; border-radius: var(--radius-round); box-shadow: var(--shadow-md);
-  animation: markerPulse 2s ease-in-out infinite;
-}
 @keyframes markerPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(226,98,44,0.5); } 50% { box-shadow: 0 0 0 10px rgba(226,98,44,0); } }
 .floorplan-wrap:fullscreen .floorplan-viewport,
 .floorplan-wrap:fullscreen .smart-img { height: 100%; }
