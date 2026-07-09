@@ -152,7 +152,7 @@ const translations = {
       title: "إقرار وتعهد",
       text: "أقر بأنني اطلعت على دليل المتدرب وأوافق على الالتزام بجميع السياسات والأنظمة وتعليمات الأمن والسلامة والتعليمات المنظمة للبرنامج التدريبي طوال فترة حضوري في مركز التدريب.",
       fullName: "الاسم الكامل",
-      companyName: "اسم الشركة",
+      companyName: "جهة العمل",
       trainingDate: "تاريخ التدريب",
       checkbox: "لقد قرأت هذا الإقرار وأوافق عليه",
       submit: "إرسال الإقرار",
@@ -161,7 +161,7 @@ const translations = {
     },
     footer: {
       tagline: "أول مركز تدريب معتمد من IPC في المملكة العربية السعودية.",
-      rights: "© 2025 مركز ساك تيم للتدريب. جميع الحقوق محفوظة.",
+      rights: "2026 مركز ساك تيم للتدريب. جميع الحقوق محفوظة.",
       license: "مرخّص من المؤسسة العامة للتدريب التقني والمهني ومعتمد من IPC."
     }
   },
@@ -316,7 +316,7 @@ const translations = {
       title: "Declaration & Undertaking",
       text: "I acknowledge that I have reviewed the Trainee Guide and I agree to comply with all policies, regulations, safety and security instructions, and program guidelines throughout my attendance at the training center.",
       fullName: "Full Name",
-      companyName: "Company Name",
+      companyName: "Employer Name",
       trainingDate: "Training Date",
       checkbox: "I have read and agree to this declaration",
       submit: "Submit Agreement",
@@ -325,7 +325,7 @@ const translations = {
     },
     footer: {
       tagline: "The first IPC Authorized Training Center in Saudi Arabia.",
-      rights: "© 2025 SAAK Team Training Center. All rights reserved.",
+      rights: "2026 SAAK Team Training Center. All rights reserved.",
       license: "Licensed by TVTC and authorized by IPC."
     }
   }
