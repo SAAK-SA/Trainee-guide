@@ -244,8 +244,6 @@
 .policy-section--forbidden .policy-section-hd { background: #1a2744; }
 .policy-section--forbidden .policy-num { background: var(--c-gold-600); }
 .policy-section--forbidden .policy-items svg { color: var(--c-navy-800); }
-.policy-section--general { grid-column: 1 / -1; }
-.policy-section--general .policy-items { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3) var(--space-8); }
 
 /* ---------- Certificate ---------- */
 .certificate-panel {
