@@ -31,6 +31,7 @@
       : "SAAK Team Training Center | Trainee Guide";
 
     localStorage.setItem(STORAGE_KEY, lang);
+    document.dispatchEvent(new CustomEvent("saak:lang-changed", { detail: { lang } }));
   }
 
   function initLangSwitch() {

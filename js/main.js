@@ -11,17 +11,12 @@
     if (loader) setTimeout(() => loader.classList.add("is-hidden"), 350);
   });
 
-  /* ---------------- Sticky header + scroll progress ---------------- */
+  /* ---------------- Sticky header ---------------- */
   const header = document.getElementById("site-header");
-  const progressBar = document.getElementById("scroll-progress");
   const backToTop = document.getElementById("back-to-top");
 
   function onScroll() {
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-    if (progressBar) progressBar.style.width = pct + "%";
     if (header) header.classList.toggle("is-scrolled", scrollTop > 10);
     if (backToTop) backToTop.classList.toggle("is-visible", scrollTop > 500);
   }
@@ -40,35 +35,6 @@
       const isOpen = primaryNav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", String(isOpen));
     });
-    primaryNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        primaryNav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  /* ---------------- Active nav on scroll ---------------- */
-  const navLinks = document.querySelectorAll('.primary-nav a[href^="#"]');
-  const sections = Array.from(navLinks)
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
-
-  if (sections.length) {
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const link = document.querySelector(`.primary-nav a[href="#${entry.target.id}"]`);
-          if (!link) return;
-          if (entry.isIntersecting) {
-            navLinks.forEach((l) => l.classList.remove("is-active"));
-            link.classList.add("is-active");
-          }
-        });
-      },
-      { rootMargin: "-40% 0px -55% 0px" }
-    );
-    sections.forEach((sec) => navObserver.observe(sec));
   }
 
   /* ---------------- Reveal on scroll ---------------- */
@@ -81,14 +47,15 @@
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.1 }
   );
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
   /* ---------------- Smart image: load real photo, fallback to placeholder ---------------- */
   const iconMap = {
     building: "icon-building", door: "icon-door", bell: "icon-bell", user: "icon-user",
-    badge: "icon-badge", chair: "icon-chair", laptop: "icon-laptop", calendar: "icon-calendar"
+    badge: "icon-badge", chair: "icon-chair", laptop: "icon-laptop", calendar: "icon-calendar",
+    certificate: "icon-certificate", shield: "icon-shield", globe: "icon-globe"
   };
 
   document.querySelectorAll(".smart-img[data-src]").forEach((el) => {
@@ -100,7 +67,7 @@
     placeholder.className = "smart-img-placeholder";
     placeholder.innerHTML =
       `<svg width="40" height="40"><use href="#${iconMap[iconKey] || "icon-building"}"/></svg>` +
-      `<span data-i18n="${labelKey || ""}"></span>`;
+      (labelKey ? `<span data-i18n="${labelKey}"></span>` : "");
     el.appendChild(placeholder);
     if (labelKey && window.translations) {
       const lang = document.documentElement.lang || "ar";
@@ -144,7 +111,8 @@
   }
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
 
-  document.querySelectorAll(".smart-img.is-loaded, .smart-img").forEach((el) => {
+  document.querySelectorAll(".smart-img").forEach((el) => {
+    if (el.closest(".about-feature-card")) return;
     el.style.cursor = "zoom-in";
     el.addEventListener("click", () => {
       const img = el.querySelector("img");
@@ -159,27 +127,6 @@
       if (img && img.getAttribute("src")) openLightbox(img.src, "Training schedule");
     });
   }
-
-  /* ---------------- FAQ accordion ---------------- */
-  document.querySelectorAll(".accordion-trigger").forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      const item = trigger.closest(".accordion-item");
-      const panel = item.querySelector(".accordion-panel");
-      const isOpen = item.classList.contains("is-open");
-
-      document.querySelectorAll(".accordion-item.is-open").forEach((openItem) => {
-        if (openItem !== item) {
-          openItem.classList.remove("is-open");
-          openItem.querySelector(".accordion-trigger").setAttribute("aria-expanded", "false");
-          openItem.querySelector(".accordion-panel").style.maxHeight = null;
-        }
-      });
-
-      item.classList.toggle("is-open", !isOpen);
-      trigger.setAttribute("aria-expanded", String(!isOpen));
-      panel.style.maxHeight = !isOpen ? panel.scrollHeight + "px" : null;
-    });
-  });
 
   /* ---------------- Floor plan zoom / fullscreen ---------------- */
   const floorImg = document.getElementById("floorplan-img");
@@ -202,65 +149,111 @@
     });
   }
 
-  /* ---------------- Signature pad ---------------- */
-  const canvas = document.getElementById("signature-pad");
-  const clearBtn = document.getElementById("signature-clear");
-  let hasSignature = false;
+  /* ---------------- Step wizard ---------------- */
+  const wizard = document.getElementById("wizard");
+  const steps = Array.from(document.querySelectorAll(".step"));
+  const totalSteps = steps.length;
+  const progressFill = document.getElementById("wizard-progress-fill");
+  const stepCurrentEl = document.getElementById("wizard-step-current");
+  const stepTitleEl = document.getElementById("wizard-step-title");
+  const prevBtn = document.getElementById("wizard-prev");
+  const nextBtn = document.getElementById("wizard-next");
+  let currentStep = 0;
 
-  if (canvas) {
-    const ctx = canvas.getContext("2d");
-    let drawing = false;
+  function isMobileNav() {
+    return window.matchMedia("(max-width: 860px)").matches;
+  }
 
-    function resizeCanvas() {
-      const ratio = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * ratio;
-      canvas.height = rect.height * ratio;
-      ctx.scale(ratio, ratio);
-      ctx.strokeStyle = "#123a63";
-      ctx.lineWidth = 2.2;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
+  function stepTitle(index) {
+    const header = steps[index] && steps[index].querySelector(".step-accordion-header span");
+    return header ? header.textContent : "";
+  }
 
-    function getPos(e) {
-      const rect = canvas.getBoundingClientRect();
-      const point = e.touches ? e.touches[0] : e;
-      return { x: point.clientX - rect.left, y: point.clientY - rect.top };
-    }
-    function start(e) { drawing = true; hasSignature = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); e.preventDefault(); }
-    function move(e) { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); e.preventDefault(); }
-    function end() { drawing = false; }
+  function renderSteps() {
+    steps.forEach((step, i) => {
+      const active = i === currentStep;
+      step.classList.toggle("is-active", active);
+      const body = step.querySelector(".step-body");
+      if (!body) return;
+      if (isMobileNav()) {
+        body.style.maxHeight = active ? body.scrollHeight + "px" : "0px";
+      } else {
+        body.style.maxHeight = "";
+      }
+    });
+  }
 
-    canvas.addEventListener("mousedown", start);
-    canvas.addEventListener("mousemove", move);
-    window.addEventListener("mouseup", end);
-    canvas.addEventListener("touchstart", start, { passive: false });
-    canvas.addEventListener("touchmove", move, { passive: false });
-    canvas.addEventListener("touchend", end);
+  function updateProgress() {
+    if (progressFill) progressFill.style.width = ((currentStep + 1) / totalSteps) * 100 + "%";
+    if (stepCurrentEl) stepCurrentEl.textContent = String(currentStep + 1);
+    if (stepTitleEl) stepTitleEl.textContent = stepTitle(currentStep);
+  }
 
-    if (clearBtn) {
-      clearBtn.addEventListener("click", () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        hasSignature = false;
-      });
+  function updateNavButtons() {
+    if (prevBtn) prevBtn.disabled = currentStep === 0;
+    if (nextBtn) nextBtn.style.visibility = currentStep === totalSteps - 1 ? "hidden" : "visible";
+  }
+
+  function updateActiveNavLinks() {
+    document.querySelectorAll(".step-jump[data-step]").forEach((btn) => {
+      btn.classList.toggle("is-active", Number(btn.getAttribute("data-step")) === currentStep);
+    });
+  }
+
+  function goToStep(index, opts) {
+    currentStep = Math.max(0, Math.min(totalSteps - 1, index));
+    renderSteps();
+    updateProgress();
+    updateNavButtons();
+    updateActiveNavLinks();
+    if (!opts || opts.scroll !== false) {
+      wizard.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
+
+  if (prevBtn) prevBtn.addEventListener("click", () => goToStep(currentStep - 1));
+  if (nextBtn) nextBtn.addEventListener("click", () => goToStep(currentStep + 1));
+
+  document.querySelectorAll(".step-jump[data-step]").forEach((btn) => {
+    btn.addEventListener("click", () => goToStep(Number(btn.getAttribute("data-step"))));
+  });
+
+  document.getElementById("start-tour")?.addEventListener("click", () => goToStep(0));
+
+  steps.forEach((step, i) => {
+    const header = step.querySelector(".step-accordion-header");
+    if (header) header.addEventListener("click", () => goToStep(i));
+  });
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(renderSteps, 150);
+  });
+
+  goToStep(0, { scroll: false });
+
+  // Re-run once translations are applied on load / language switch so titles/progress stay in sync.
+  document.addEventListener("saak:lang-changed", () => updateProgress());
 
   /* ---------------- Agreement form ---------------- */
   const form = document.getElementById("agreement-form");
   const successPanel = document.getElementById("agreement-success");
+  const agreeCheckbox = document.getElementById("f-agree");
+  const submitBtn = document.getElementById("agreement-submit");
+
+  if (agreeCheckbox && submitBtn) {
+    agreeCheckbox.addEventListener("change", () => {
+      submitBtn.disabled = !agreeCheckbox.checked;
+    });
+  }
 
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      let valid = form.checkValidity();
+      const valid = form.checkValidity() && agreeCheckbox.checked;
       form.querySelectorAll("input[required]").forEach((input) => input.classList.add("touched"));
-
-      if (!hasSignature) valid = false;
 
       if (!valid) {
         form.reportValidity();

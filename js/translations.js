@@ -10,15 +10,17 @@ const translations = {
       journey: "رحلة الوصول",
       facilities: "المرافق",
       policies: "السياسات",
-      faq: "الأسئلة الشائعة",
       contact: "تواصل معنا",
       agreement: "الإقرار والتعهد"
+    },
+    wizard: {
+      prev: "السابق",
+      next: "التالي"
     },
     hero: {
       title: "مرحبًا بكم في مركز ساك تيم للتدريب",
       subtitle: "دليلكم الشامل قبل الحضور إلى دورتكم التدريبية — كل ما تحتاجون معرفته في مكان واحد.",
-      cta: "ابدأ الجولة",
-      ctaSecondary: "تعرّف على المركز"
+      cta: "ابدأ الجولة"
     },
     about: {
       eyebrow: "من نحن",
@@ -26,17 +28,14 @@ const translations = {
       lead: "تأسس مركز ساك تيم للتدريب عام 2025 كامتداد لشركة تيم بارتنر، أول مركز تدريب عربي معتمد من IPC، تأسس في تونس عام 2011.",
       card1: { title: "تأسس عام 2025", text: "انطلاقة حديثة مبنية على خبرة عريقة في التدريب الفني المعتمد دوليًا." },
       card2: { title: "أول مركز معتمد من IPC بالسعودية", text: "الأول من نوعه في المملكة العربية السعودية بتفويض رسمي من منظمة IPC العالمية." },
-      card3: { title: "مرخّص من المؤسسة العامة للتدريب التقني والمهني", text: "برامجنا مرخصة رسميًا من TVTC لضمان أعلى معايير الجودة." },
+      card3: { title: "مرخّص من TVTC", text: "برامجنا مرخصة رسميًا من المؤسسة العامة للتدريب التقني والمهني لضمان أعلى معايير الجودة." },
       card4: { title: "تدريب وشهادات باللغة العربية", text: "نقدّم محتوى IPC المعتمد دوليًا بلغة عربية سلسة وواضحة." },
-      card5: { title: "دعم رؤية السعودية 2030", text: "نساهم في بناء الكفاءات الوطنية ودعم التوطين في القطاعات الصناعية." },
-      card6: { title: "معايير دولية معتمدة", text: "مناهج ومعامل مطابقة لمواصفات IPC العالمية في التصنيع الإلكتروني." }
+      card5: { title: "دعم رؤية السعودية 2030", text: "نساهم في بناء الكفاءات الوطنية ودعم التوطين في القطاعات الصناعية." }
     },
     location: {
       eyebrow: "الموقع",
       title: "موقع مركز التدريب",
       address: "مبنى ساك إنترناشونال، الرياض، المملكة العربية السعودية",
-      btnMaps: "افتح في خرائط جوجل",
-      btnCall: "اتصل بالاستقبال",
       btnDirections: "احصل على الاتجاهات",
       imgLabel: "صورة المبنى"
     },
@@ -46,7 +45,6 @@ const translations = {
       item1: { title: "احضر قبل 15 دقيقة", text: "التزم بالوصول مبكرًا لإتمام إجراءات التسجيل بهدوء." },
       item2: { title: "أحضر جهاز اللابتوب", text: "بعض التمارين التدريبية تتطلب استخدام حاسوبك المحمول." },
       item3: { title: "أحضر الشاحن", text: "تأكد من إحضار شاحن الجهاز لتجنب انقطاع البطارية أثناء التدريب." },
-      item4: { title: "أحضر هوية الشركة", text: "يُرجى إحضار بطاقة تعريف الشركة إن كانت مطلوبة من جهة عملك." },
       item5: { title: "ارتدِ زيًا مناسبًا", text: "يُفضّل ارتداء زي رسمي أو زي العمل المعتمد لدى شركتك." },
       item6: { title: "راجع الجدول التدريبي", text: "اطّلع على جدول الدورة مسبقًا لمعرفة التوقيت والمحتوى." }
     },
@@ -77,7 +75,6 @@ const translations = {
       prayer: "مصلى",
       restrooms: "دورات المياه",
       coffee: "ركن القهوة",
-      parking: "موقف السيارات",
       exit: "مخرج الطوارئ"
     },
     layout: {
@@ -96,7 +93,6 @@ const translations = {
       follow4: "إحضار جهاز اللابتوب عند الحاجة",
       follow5: "اتباع تعليمات المدرب داخل القاعة",
       follow6: "الالتزام بالمواعيد المحددة",
-      follow7: "إبقاء الهاتف على الوضع الصامت",
       follow8: "الحفاظ على نظافة المكان",
       follow9: "المحافظة على ممتلكات الشركة والمعدات",
       notAllowedTitle: "غير مسموح",
@@ -122,22 +118,11 @@ const translations = {
       req2: "إتمام جميع التمارين والتقييمات العملية المطلوبة",
       req3: "الالتزام بسياسات وأنظمة مركز التدريب طوال المدة"
     },
-    faq: {
-      eyebrow: "الأسئلة الشائعة",
-      title: "أسئلة يتكرر طرحها",
-      q1: "أين يمكنني إيقاف سيارتي؟", a1: "يتوفر موقف سيارات مخصص للمتدربين أمام المبنى مباشرة.",
-      q2: "هل تتوفر خدمة الواي فاي؟", a2: "نعم، تتوفر شبكة إنترنت لاسلكية مجانية لجميع المتدربين داخل المركز.",
-      q3: "هل يمكنني شحن جهاز اللابتوب؟", a3: "نعم، تتوفر منافذ كهربائية في جميع قاعات التدريب وصالة الانتظار.",
-      q4: "من يمكنني التواصل معه عند وجود استفسار؟", a4: "يمكنكم التواصل مع منسق التدريب أو فريق الاستقبال المذكورة بياناتهم في قسم التواصل.",
-      q5: "متى سأستلم شهادتي؟", a5: "تُصدر الشهادات عادة خلال أسبوعين من تاريخ إتمام الدورة التدريبية بنجاح."
-    },
     contact: {
       eyebrow: "تواصل معنا",
       title: "بيانات التواصل",
-      coordinator: "منسق التدريب",
-      reception: "الاستقبال",
-      email: "البريد الإلكتروني",
-      map: "الموقع على الخريطة"
+      phone: "رقم الهاتف",
+      email: "البريد الإلكتروني"
     },
     agreement: {
       eyebrow: "الإقرار والتعهد",
@@ -145,10 +130,7 @@ const translations = {
       text: "أقر بأنني اطلعت على دليل المتدرب وأوافق على الالتزام بجميع السياسات والأنظمة وتعليمات الأمن والسلامة والتعليمات المنظمة للبرنامج التدريبي طوال فترة حضوري في مركز التدريب.",
       fullName: "الاسم الكامل",
       companyName: "اسم الشركة",
-      courseName: "اسم الدورة التدريبية",
       trainingDate: "تاريخ التدريب",
-      signature: "التوقيع",
-      clearSignature: "مسح التوقيع",
       checkbox: "لقد قرأت هذا الإقرار وأوافق عليه",
       submit: "إرسال الإقرار",
       successTitle: "تم إرسال إقرارك بنجاح",
@@ -168,15 +150,17 @@ const translations = {
       journey: "Arrival Journey",
       facilities: "Facilities",
       policies: "Policies",
-      faq: "FAQ",
       contact: "Contact",
       agreement: "Agreement"
+    },
+    wizard: {
+      prev: "Previous",
+      next: "Next"
     },
     hero: {
       title: "Welcome to SAAK Team Training Center",
       subtitle: "Your complete guide before arriving at your training course — everything you need to know, in one place.",
-      cta: "Start the Tour",
-      ctaSecondary: "About the Center"
+      cta: "Start the Tour"
     },
     about: {
       eyebrow: "Who We Are",
@@ -186,15 +170,12 @@ const translations = {
       card2: { title: "First IPC Authorized Center in KSA", text: "The first of its kind in Saudi Arabia, officially authorized by IPC." },
       card3: { title: "Licensed by TVTC", text: "Our programs are officially licensed by the Technical and Vocational Training Corporation." },
       card4: { title: "Arabic Training & Certification", text: "Internationally certified IPC content delivered in clear, native Arabic." },
-      card5: { title: "Supporting Saudi Vision 2030", text: "We help build national talent and support localization across industrial sectors." },
-      card6: { title: "Internationally Recognized Standards", text: "Curricula and labs aligned with global IPC electronics manufacturing standards." }
+      card5: { title: "Supporting Saudi Vision 2030", text: "We help build national talent and support localization across industrial sectors." }
     },
     location: {
       eyebrow: "Location",
       title: "Training Center Location",
       address: "SAAK International Building, Riyadh, Saudi Arabia",
-      btnMaps: "Open in Google Maps",
-      btnCall: "Call Reception",
       btnDirections: "Get Directions",
       imgLabel: "Building photo"
     },
@@ -204,7 +185,6 @@ const translations = {
       item1: { title: "Arrive 15 Minutes Early", text: "Give yourself time to check in comfortably before the session starts." },
       item2: { title: "Bring Your Laptop", text: "Some hands-on exercises require the use of your own laptop." },
       item3: { title: "Bring Your Charger", text: "Make sure to bring your charger to avoid running out of battery." },
-      item4: { title: "Bring Company ID", text: "Please bring your company ID badge if required by your employer." },
       item5: { title: "Wear Appropriate Attire", text: "Business or company-approved work attire is recommended." },
       item6: { title: "Review the Training Schedule", text: "Check the course schedule in advance for timing and content." }
     },
@@ -235,7 +215,6 @@ const translations = {
       prayer: "Prayer Room",
       restrooms: "Restrooms",
       coffee: "Coffee Area",
-      parking: "Parking",
       exit: "Emergency Exit"
     },
     layout: {
@@ -254,7 +233,6 @@ const translations = {
       follow4: "Bring your laptop when required",
       follow5: "Follow the trainer's instructions in the classroom",
       follow6: "Be punctual for all sessions",
-      follow7: "Keep phones on silent mode",
       follow8: "Maintain cleanliness of the premises",
       follow9: "Protect company property and equipment",
       notAllowedTitle: "Not Allowed",
@@ -280,22 +258,11 @@ const translations = {
       req2: "Complete all required practical exercises and assessments",
       req3: "Comply with the center's policies and regulations throughout the course"
     },
-    faq: {
-      eyebrow: "FAQ",
-      title: "Frequently Asked Questions",
-      q1: "Where can I park?", a1: "Dedicated trainee parking is available directly in front of the building.",
-      q2: "Is Wi-Fi available?", a2: "Yes, free wireless internet is available to all trainees throughout the center.",
-      q3: "Can I charge my laptop?", a3: "Yes, power outlets are available in all training rooms and the waiting lounge.",
-      q4: "Who should I contact for questions?", a4: "You may contact the training coordinator or reception team listed in the Contact section.",
-      q5: "When will I receive my certificate?", a5: "Certificates are typically issued within two weeks of successfully completing the course."
-    },
     contact: {
       eyebrow: "Contact",
       title: "Contact Information",
-      coordinator: "Training Coordinator",
-      reception: "Reception",
-      email: "Email",
-      map: "Location on Map"
+      phone: "Phone Number",
+      email: "Email Address"
     },
     agreement: {
       eyebrow: "Agreement",
@@ -303,10 +270,7 @@ const translations = {
       text: "I acknowledge that I have reviewed the Trainee Guide and I agree to comply with all policies, regulations, safety and security instructions, and program guidelines throughout my attendance at the training center.",
       fullName: "Full Name",
       companyName: "Company Name",
-      courseName: "Course Name",
       trainingDate: "Training Date",
-      signature: "Signature",
-      clearSignature: "Clear Signature",
       checkbox: "I have read and agree to this declaration",
       submit: "Submit Agreement",
       successTitle: "Your Agreement Was Submitted",
