@@ -274,7 +274,7 @@
   /* ---------------- Agreement form ---------------- */
   // Google Apps Script web-app endpoint — replace with your deployed script URL.
   // Script source: see /docs/google-apps-script.js in this project.
-  const SHEETS_ENDPOINT = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+  const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxhOjBO99aI8iaxrqa_py5sjll_Gejf6ITD-S9wLnWX2v_GyWBn0XWVnInwgj_nfuA2fA/exec";
 
   const form = document.getElementById("agreement-form");
   const successPanel = document.getElementById("agreement-success");
