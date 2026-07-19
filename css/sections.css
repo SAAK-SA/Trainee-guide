@@ -25,15 +25,15 @@
 .hero-actions { display: flex; gap: var(--space-4); flex-wrap: wrap; justify-content: center; margin-top: var(--space-3); }
 
 .scroll-hint {
-  position: absolute; bottom: var(--space-6); inset-inline-start: 50%; transform: translateX(-50%);
+  position: absolute; bottom: var(--space-6); inset-inline: 0; margin-inline: auto;
   width: 28px; height: 44px; border: 2px solid rgba(255,255,255,0.5); border-radius: var(--radius-round);
 }
 .scroll-hint::before {
-  content: ""; position: absolute; top: 8px; inset-inline-start: 50%; transform: translateX(-50%);
+  content: ""; position: absolute; top: 8px; inset-inline: 0; margin-inline: auto;
   width: 4px; height: 10px; background: #fff; border-radius: var(--radius-round);
   animation: scrollHint 1.6s ease-in-out infinite;
 }
-@keyframes scrollHint { 0% { opacity: 1; transform: translate(-50%, 0); } 70% { opacity: 0; transform: translate(-50%, 14px); } 100% { opacity: 0; } }
+@keyframes scrollHint { 0% { opacity: 1; transform: translateY(0); } 70% { opacity: 0; transform: translateY(14px); } 100% { opacity: 0; } }
 
 /* ==========================================================================
    Step Wizard
@@ -80,12 +80,13 @@ html[dir="rtl"] .wizard-nav-icon-next { transform: scaleX(-1); }
    About — horizontal feature carousel
    ========================================================================== */
 .about-carousel {
-  display: flex; gap: var(--space-5); overflow-x: auto; padding-block: var(--space-2) var(--space-4);
-  scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+  display: flex; gap: var(--space-4); overflow-x: auto; padding-block: var(--space-2) var(--space-4);
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; scroll-behavior: auto;
 }
+.about-carousel::-webkit-scrollbar { display: none; }
 .about-feature-card {
-  position: relative; flex: 0 0 300px; height: 420px;
-  border-radius: var(--radius-xl); overflow: hidden; scroll-snap-align: start;
+  position: relative; flex: 0 0 250px; height: 340px;
+  border-radius: var(--radius-xl); overflow: hidden;
   cursor: pointer; transition: transform var(--duration-base) var(--ease-out), box-shadow var(--duration-base);
   box-shadow: var(--shadow-sm);
 }

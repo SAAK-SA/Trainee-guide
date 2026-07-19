@@ -59,8 +59,6 @@
 }
 .lang-switch:hover { background: var(--color-bg-alt); border-color: var(--color-accent); }
 
-.nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 6px; }
-.nav-toggle span { width: 24px; height: 2px; background: var(--color-text); border-radius: 2px; transition: transform var(--duration-base), opacity var(--duration-base); }
 
 /* ---------- Buttons ---------- */
 .btn {

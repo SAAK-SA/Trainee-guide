@@ -27,16 +27,6 @@
     backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   }
 
-  /* ---------------- Mobile nav toggle ---------------- */
-  const navToggle = document.getElementById("nav-toggle");
-  const primaryNav = document.getElementById("primary-nav");
-  if (navToggle && primaryNav) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = primaryNav.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-  }
-
   /* ---------------- Reveal on scroll ---------------- */
   const revealObserver = new IntersectionObserver(
     (entries) => {
@@ -50,6 +40,51 @@
     { threshold: 0.1 }
   );
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+  /* ---------------- About carousel: gentle auto drift left/right ---------------- */
+  function initAutoCarousel(track) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let direction = 1;
+    let paused = false;
+    let resumeTimer;
+    let frameCount = 0;
+
+    // Whole-pixel steps applied every other frame: sub-pixel deltas get
+    // rounded away by the browser, which would make every frame look
+    // "stuck" and flip direction, canceling out into no movement at all.
+    function frame() {
+      frameCount++;
+      if (!paused && frameCount % 2 === 0) {
+        const before = track.scrollLeft;
+        track.scrollLeft = before + direction;
+        if (track.scrollLeft === before) {
+          direction *= -1;
+          track.scrollLeft = before + direction;
+        }
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function pause() {
+      paused = true;
+      clearTimeout(resumeTimer);
+    }
+    function resumeLater() {
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { paused = false; }, 1500);
+    }
+
+    ["mouseenter", "touchstart", "focusin", "wheel"].forEach((evt) =>
+      track.addEventListener(evt, pause, { passive: true })
+    );
+    ["mouseleave", "touchend", "focusout"].forEach((evt) =>
+      track.addEventListener(evt, resumeLater, { passive: true })
+    );
+
+    requestAnimationFrame(frame);
+  }
+  document.querySelectorAll(".about-carousel").forEach(initAutoCarousel);
 
   /* ---------------- Smart image: load real photo, fallback to placeholder ---------------- */
   const iconMap = {
