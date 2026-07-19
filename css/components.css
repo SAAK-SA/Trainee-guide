@@ -72,6 +72,7 @@
 .btn:hover { transform: translateY(-2px); }
 .btn svg { flex-shrink: 0; }
 .btn:disabled { opacity: 0.4; pointer-events: none; transform: none; box-shadow: none; }
+.btn.is-loading { opacity: 0.65; pointer-events: none; cursor: wait; }
 
 .btn-primary { background: var(--color-primary); color: #fff; box-shadow: var(--shadow-sm); }
 .btn-primary:hover { background: var(--c-navy-700); box-shadow: var(--shadow-md); }

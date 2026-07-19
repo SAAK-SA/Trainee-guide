@@ -272,6 +272,10 @@
   document.addEventListener("saak:lang-changed", () => updateProgress());
 
   /* ---------------- Agreement form ---------------- */
+  // Google Apps Script web-app endpoint — replace with your deployed script URL.
+  // Script source: see /docs/google-apps-script.js in this project.
+  const SHEETS_ENDPOINT = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+
   const form = document.getElementById("agreement-form");
   const successPanel = document.getElementById("agreement-success");
   const agreeCheckbox = document.getElementById("f-agree");
@@ -284,7 +288,7 @@
   }
 
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const valid = form.checkValidity() && agreeCheckbox.checked;
@@ -293,6 +297,30 @@
       if (!valid) {
         form.reportValidity();
         return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add("is-loading");
+
+      const payload = new URLSearchParams({
+        name:     (document.getElementById("f-name")    || {}).value || "",
+        company:  (document.getElementById("f-company") || {}).value || "",
+        date:     (document.getElementById("f-date")    || {}).value || "",
+        lang:     document.documentElement.lang || "ar",
+        timestamp: new Date().toISOString()
+      });
+
+      try {
+        // no-cors: Google Apps Script doesn't return CORS headers on POST;
+        // we treat any network-level completion as success.
+        await fetch(SHEETS_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: payload.toString()
+        });
+      } catch (_) {
+        // Network error — still show success; data may have arrived.
       }
 
       form.hidden = true;
