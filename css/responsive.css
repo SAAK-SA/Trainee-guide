@@ -49,7 +49,8 @@
   html[dir="rtl"] .step.is-active .step-accordion-header svg { transform: rotate(-90deg); }
   .step-body { max-height: 0; overflow: hidden; transition: max-height var(--duration-base) var(--ease-out); padding-inline: var(--space-5); }
   .step.is-active .step-body { padding-block-end: var(--space-6); }
-  .step .section-head { text-align: start; }
+  /* Title already shown in accordion header — hide duplicate section-head inside content */
+  .step .section-head { display: none; }
 }
 
 @media (max-width: 600px) {
