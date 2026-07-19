@@ -195,26 +195,14 @@
   const nextBtn = document.getElementById("wizard-next");
   let currentStep = 0;
 
-  function isMobileNav() {
-    return window.matchMedia("(max-width: 860px)").matches;
-  }
-
   function stepTitle(index) {
-    const header = steps[index] && steps[index].querySelector(".step-accordion-header span");
-    return header ? header.textContent : "";
+    const el = steps[index] && steps[index].querySelector(".step-accordion-header span");
+    return el ? el.textContent : "";
   }
 
   function renderSteps() {
     steps.forEach((step, i) => {
-      const active = i === currentStep;
-      step.classList.toggle("is-active", active);
-      const body = step.querySelector(".step-body");
-      if (!body) return;
-      if (isMobileNav()) {
-        body.style.maxHeight = active ? body.scrollHeight + "px" : "0px";
-      } else {
-        body.style.maxHeight = "";
-      }
+      step.classList.toggle("is-active", i === currentStep);
     });
   }
 
@@ -258,12 +246,6 @@
   steps.forEach((step, i) => {
     const header = step.querySelector(".step-accordion-header");
     if (header) header.addEventListener("click", () => goToStep(i));
-  });
-
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(renderSteps, 150);
   });
 
   goToStep(0, { scroll: false });

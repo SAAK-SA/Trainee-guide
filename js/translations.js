@@ -7,9 +7,14 @@ const translations = {
     nav: {
       about: "عن المركز",
       location: "الموقع",
+      before: "الاستعداد",
+      schedule: "الجدول",
       journey: "رحلة الوصول",
       facilities: "المرافق",
+      layout: "المخطط",
       policies: "السياسات",
+      safety: "السلامة",
+      certificate: "الشهادة",
       contact: "تواصل معنا",
       agreement: "الإقرار والتعهد"
     },
@@ -84,24 +89,43 @@ const translations = {
       imgLabel: "المخطط التفصيلي للمبنى"
     },
     policies: {
-      eyebrow: "السياسات",
-      title: "سياسات وأنظمة المركز",
-      followTitle: "الالتزامات المطلوبة",
-      follow1: "احترام المدربين والمدرّبين الآخرين",
-      follow2: "احترام زملاء الدورة التدريبية",
-      follow3: "ارتداء بطاقة التعريف طوال فترة التدريب",
-      follow4: "إحضار جهاز اللابتوب عند الحاجة",
-      follow5: "اتباع تعليمات المدرب داخل القاعة",
-      follow6: "الالتزام بالمواعيد المحددة",
-      follow8: "الحفاظ على نظافة المكان",
-      follow9: "المحافظة على ممتلكات الشركة والمعدات",
-      notAllowedTitle: "غير مسموح",
-      not1: "التدخين داخل المبنى",
-      not2: "التصوير دون إذن مسبق",
-      not3: "دخول المناطق المحظورة",
-      not4: "إتلاف الأجهزة أو المعدات",
-      not5: "إزعاج المتدربين الآخرين",
-      not6: "استخدام المرافق بشكل غير مصرح به"
+      eyebrow: "السياسات والأنظمة",
+      title: "تعليمات وضوابط المتدربين",
+      s1: {
+        title: "أولًا: متطلبات التدريب",
+        i1: "ارتداء بطاقة التعريف طوال فترة التدريب.",
+        i2: "المحافظة على نظافة القاعات والمرافق.",
+        i3: "المحافظة على ممتلكات الشركة والأجهزة والمعدات.",
+        i4: "عدم تناول الأطعمة والمشروبات داخل القاعات التدريبية."
+      },
+      s2: {
+        title: "ثانيًا: الالتزام والسلوك العام",
+        i1: "الالتزام باحترام المدربين.",
+        i2: "الالتزام بالتعامل المهني والمحافظة على بيئة تدريب إيجابية.",
+        i3: "الالتزام بالمواعيد المحددة للحضور والانصراف.",
+        i4: "الالتزام بالحضور طوال فترة التدريب.",
+        i5: "عدم البقاء في القاعات التدريبية بعد انتهاء وقت التدريب.",
+        i6: "في حال التأخر أو الغياب، يجب إبلاغ جهة العمل ومنسق التدريب مسبقًا.",
+        i7: "اتباع تعليمات المدرب داخل القاعة.",
+        i8: "الالتزام بتعليمات إدارة الأمن والسلامة عند الدخول والخروج."
+      },
+      s3: {
+        title: "ثالثًا: الممنوعات",
+        i1: "يمنع التدخين داخل مباني الشركة.",
+        i2: "يمنع التصوير أو تسجيل الفيديو أو الصوت داخل مرافق الشركة إلا بعد الحصول على موافقة مسبقة.",
+        i3: "يمنع دخول المناطق المحظورة أو غير المصرح بها.",
+        i4: "يمنع إدخال أي أجهزة أو معدات شخصية إلى مناطق التدريب العملي إلا بعد موافقة المدرب.",
+        i5: "يمنع إتلاف الأجهزة أو المعدات أو إساءة استخدامها.",
+        i6: "يمنع إزعاج المتدربين أو تعطيل سير العملية التدريبية.",
+        i7: "يمنع استخدام مرافق الشركة أو تجهيزاتها دون تصريح."
+      },
+      s4: {
+        title: "رابعًا: أحكام عامة",
+        i1: "يلتزم المتدرب بالمحافظة على سرية جميع المعلومات والمستندات والمعدات التي يطلع عليها أثناء فترة التدريب.",
+        i2: "يحق للشركة استبعاد أي متدرب يخالف الأنظمة أو يسيء استخدام مرافق الشركة أو يخل بسير البرنامج التدريبي.",
+        i3: "المركز غير مسؤول عن فقدان أو تلف المقتنيات الشخصية الخاصة بالمتدرب.",
+        i4: "يوافق المتدرب على إمكانية قيام المركز بالتقاط الصور أو تسجيل مقاطع الفيديو أثناء البرامج التدريبية واستخدامها لأغراض التوثيق والنشر دون الحاجة إلى موافقة خطية مسبقة."
+      }
     },
     safety: {
       eyebrow: "السلامة",
@@ -147,9 +171,14 @@ const translations = {
     nav: {
       about: "About",
       location: "Location",
-      journey: "Arrival Journey",
+      before: "Preparation",
+      schedule: "Schedule",
+      journey: "Journey",
       facilities: "Facilities",
+      layout: "Floor Plan",
       policies: "Policies",
+      safety: "Safety",
+      certificate: "Certificate",
       contact: "Contact",
       agreement: "Agreement"
     },
@@ -224,24 +253,43 @@ const translations = {
       imgLabel: "Detailed building floor plan"
     },
     policies: {
-      eyebrow: "Policies",
-      title: "Center Policies & Regulations",
-      followTitle: "Required Conduct",
-      follow1: "Respect trainers and fellow trainers",
-      follow2: "Respect fellow trainees",
-      follow3: "Wear your ID badge throughout the training",
-      follow4: "Bring your laptop when required",
-      follow5: "Follow the trainer's instructions in the classroom",
-      follow6: "Be punctual for all sessions",
-      follow8: "Maintain cleanliness of the premises",
-      follow9: "Protect company property and equipment",
-      notAllowedTitle: "Not Allowed",
-      not1: "Smoking inside the building",
-      not2: "Photography without prior permission",
-      not3: "Entering restricted areas",
-      not4: "Damaging devices or equipment",
-      not5: "Disturbing other trainees",
-      not6: "Unauthorized use of facilities"
+      eyebrow: "Policies & Regulations",
+      title: "Trainee Guidelines & Rules",
+      s1: {
+        title: "1. Training Requirements",
+        i1: "Wear your ID badge throughout the training period.",
+        i2: "Maintain cleanliness of training rooms and facilities.",
+        i3: "Protect company property, devices, and equipment.",
+        i4: "No food or drinks inside training rooms."
+      },
+      s2: {
+        title: "2. Conduct & General Behaviour",
+        i1: "Respect all trainers at all times.",
+        i2: "Maintain professional behaviour and a positive training environment.",
+        i3: "Be punctual for all arrival and departure times.",
+        i4: "Attend all sessions for the full duration of the training.",
+        i5: "Do not remain in training rooms after sessions have ended.",
+        i6: "In case of tardiness or absence, notify your employer and the training coordinator in advance.",
+        i7: "Follow the trainer's instructions inside the classroom.",
+        i8: "Comply with security and safety management instructions when entering and leaving."
+      },
+      s3: {
+        title: "3. Prohibited Actions",
+        i1: "Smoking inside the company's premises is strictly prohibited.",
+        i2: "Photography, video, or audio recording inside company facilities is prohibited without prior written approval.",
+        i3: "Entering restricted or unauthorised areas is prohibited.",
+        i4: "Bringing personal devices or equipment into practical training areas is prohibited without trainer approval.",
+        i5: "Damaging, misusing, or abusing devices or equipment is prohibited.",
+        i6: "Disturbing other trainees or disrupting the training process is prohibited.",
+        i7: "Using company facilities or equipment without authorisation is prohibited."
+      },
+      s4: {
+        title: "4. General Provisions",
+        i1: "Trainees must maintain the confidentiality of all information, documents, and equipment accessed during the training period.",
+        i2: "The company reserves the right to dismiss any trainee who violates regulations, misuses facilities, or disrupts the training programme.",
+        i3: "The center is not responsible for loss or damage to trainees' personal belongings.",
+        i4: "By attending, the trainee consents to the center photographing or recording training sessions for documentation, publication, or promotional purposes."
+      }
     },
     safety: {
       eyebrow: "Safety",
